@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+   width: 100%;
+   height: 100vh;
+   background-image: linear-gradient(180deg, #722abe 0, #6f42d1 50%, #594bbf 100%);
+}
+
+.wrapper {
+    display: flex;
+    overflow: hidden;
+}
+
+.mainWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex: 1 1;
+    padding: 25px;
+}
+
+.sideBar {
+    width: 0%;
+    height: 100vh;
+    background-color: #e9edffde;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    padding: 10px;
+    position: relative;
+    top:0;
+    left: 20px;
+}
+
+.sideBar.active {
+    width: 280px;
+    left: 0px;
+}
+
+.sideBar.active .currency_box{
+    display: block;
+}
+
+.sideBar_btn {
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background-color: #e9edff87;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    border-radius: 10px 0px 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.content {
+    width: 900px;
+    height: 700px;
+    display: flex;
+}
+
+.aside {
+    width: 20%;
+}
+
+.aside_nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+
+}
+
+.aside_item {
+    list-style: none;
+    border-bottom: 1px solid rgba(159, 160, 160, 0.877);
+    height: calc(100%/3);
+    background-color: #e9edff87;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: rgb(3, 3, 3);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+
+.aside_item:last-child {
+    border-bottom: none;
+}
+
+.aside_item.active {
+    background-color: #e9edffde;
+    border-right: none;
+    color: rgba(53, 1, 121, 1);
+    backdrop-filter: blur(10px);
+}
+
+.main {
+    width: 80%;
+    border-radius: 0 10px 10px 0;
+    overflow: hidden;
+}
+
+.main_page {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #e9edffde;
+    backdrop-filter: blur(10px);
+}
+
+.page_1 {
+    display: block;
+    position: relative;
+}
+
+.page_3 {
+    position: relative;
+}
+
+.main_title {
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    font-size: 20px;
+    user-select: none;  
+}
+
+.main_subtitle {
+    text-align: center;
+    line-height: 34px;
+    text-transform: uppercase;
+    font-size: 15px;
+    background-color: whitesmoke;
+    margin: 0px 20px 0px;
+    border-radius: 10px 10px 0 0;
+    color: rgba(53, 1, 121, 1);
+    user-select: none;  
+}
+
+.tasks {
+    display: block;
+    background-color: whitesmoke;
+    height: 510px;
+    margin: 0px 20px;
+    padding: 10px 10px 10px;
+    overflow-y: auto;
+}
+
+.tasks_footer {
+    background-color: whitesmoke;
+    height: 50px;
+    margin: 0px 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.main_search {
+    position: absolute;
+    top: 44px;
+    right: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.main_search.active .input_search{
+    display: block;
+    left: 0;
+}
+
+.input_search {
+    position: relative;
+    left: 200px;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid grey;
+    font-size: 16px;
+    padding: 0px 32px 0px 10px;
+    outline: none;
+    display: block;
+    transition: left ease-in-out 0.5s;
+}
+
+.search_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.search_btn:hover {
+    font-size: 21px;
+}
+
+.main_calendar {
+    position: absolute;
+    top: 44px;
+    left: 30px;
+    border-radius: 15px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.calendar_btn {
+    position: absolute;
+    background-color: white;
+    border-radius: 50% ;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 1px solid grey;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.calendar_btn:hover {
+    font-size: 19px;
+}
+
+
+.task {
+    position: relative;
+    background-color: rgba(202, 199, 202, 0.7);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 13px 5px 7px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+
+.task:hover {
+    filter: brightness(105%);
+}
+
+.task:nth-child(2n){
+    background-color: rgb(236, 233, 236);
+}
+
+.star, .delete, .change  {
+    flex: 0 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.star:hover {
+    color: rgb(225, 40, 250);
+}
+
+
+.change:hover {
+    color: blue;
+}
+
+.delete:hover {
+    color: red;
+}
+
+.task_btn:active {
+    transform: translateY(2px);
+}
+
+.task_date {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(53, 1, 121, 1);
+    pointer-events: none;
+}
+
+.description {
+    flex: 1 1;
+    max-width: 510px;
+    margin: 0 10px;
+    text-align: justify;
+    font-size: 16px;
+    padding: 3px;
+}
+
+.description .markText{
+   background-color: yellow;
+   color: rgba(53, 1, 121, 1);
+}
+
+
+.btn {
+    display: inline-block;
+    position: absolute;
+    bottom: -21px;
+    left: 50%;
+    font-size: 70px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 0.1s linear;
+    color: rgba(53, 1, 121, 1);
+    opacity: 0.8;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+#add_btn:active {
+    transform: translateY(2px);
+}
+
+.task_input {
+    position: absolute;
+    bottom: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.task_input input{
+    width: 400px;
+    padding: 8px 5px 8px 45px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    box-shadow: 0px 2px 7px 2px rgba(0,0,0,0.1);
+}
+
+.task_input input::placeholder {
+    font-size: 16px;
+    color: grey;
+}
+
+.task_input input.empty::placeholder {
+    font-size: 16px;
+    color: grey;
+    background-color: rgb(236, 182, 182);
+}
+
+.task_input input:focus {
+    box-shadow: 1px 2px 10px 1px rgba(0,0,0,0.4);
+}
+
+.task_input ion-icon{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    font-size: 20px;
+    color: grey;
+    transform: translateY(-50%);
+    color: rgba(53, 1, 121, 1);
+}
+
+
+
+.calendar {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 250px;
+    background: white;
+    z-index: 1;
+    box-shadow: 1px 2px 10px 1px rgba(0,0,0,0.4);
+    border-radius: 3px;
+    transform: translateY(-160px) translateX(-110px) scale(0);
+    transition: all 0.4s ease-in-out;
+}
+
+.calendar.active {
+    transform: translateY(0px) translateX(0px) scale(1);
+}
+
+
+.calendar .month{
+    height: 50px;
+    background-color: rgba(53, 1, 121, 1);
+    color: #fff;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.date {
+    font-size: 12px;
+}
+
+.date h2{
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
+.arrow-prev,
+.arrow-next {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.weekdays {
+    height: 35px;
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.weekdays div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(240px/7);
+    font-size: 12px;
+    user-select: none;  
+}
+
+.days{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 5px 0px;
+    cursor: pointer;
+}
+
+.days div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: calc(240px/7);
+    font-size: 12px;
+}
+
+.days div:hover:not(.today) {
+    background-color: rgba(53, 1, 121, 0.1);
+    border: 1px solid grey;
+}
+
+.prev-date,
+.next-date {
+    opacity: 0.5;
+}
+
+.today {
+    background-color: rgba(53, 1, 121, 1);
+    color: #fff;
+}
+
+.empty-backgound {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+   
+}
+
+.empty-backgound img{
+    width: 400px;
+    filter: grayscale(90%);
+    opacity: 0.15;  
+}
+
+.calendar_sort {
+    margin-left: 40px;
+    border-radius: 15px;
+    font-size: 12px;
+    height: 28px;
+    background-color: rgba(53, 1, 121, 1);
+    color: floralwhite;
+    display: flex;
+    align-items: center;
+}
+
+.month_sort {
+    padding: 0px 0px 0px 15px;
+}
+.date_sort {
+    padding: 0px 0px 0px 5px;
+}
+.sort_delete_btn {
+    width: 28px;
+    display: flex;
+    padding-left: 3px;
+    padding-right: 1px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.sort_delete_btn:hover {
+    color: red;
+}
+
+.periods {
+    padding: 0px 5px 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(128, 128, 128, 0.158);
+}
+
+.period {
+    width: 49%;
+    position: relative;
+}
+
+
+.period label {
+    font-size: 12px;
+}
+.period input {
+    width: 100%;
+    outline: none;
+}
+
+.period_btn {
+    width: 100%;
+    padding-top: 3px;
+}
+
+.period_btn button{
+    width: 100%;
+}
+
+.calendar_period {
+    border-radius: 15px;
+    font-size: 12px;
+    height: 28px;
+    background-color: rgba(53, 1, 121, 1);
+    color: floralwhite;
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.calendar_period .periodFrom {
+    padding: 0px 10px;
+}
+
+.calendar_period .periodTo {
+    padding-left: 10px;
+}
+
+.period_delete_btn {
+    width: 28px;
+    display: flex;
+    padding-left: 3px;
+    padding-right: 1px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.period_delete_btn:hover {
+    color: red;
+}
+
+.currency_box {
+    margin-top: 40px;
+}
+
+.currency_logo {
+    display: flex;
+    justify-content: center;
+    background: whitesmoke;
+    overflow: hidden;
+    height: 100px;
+}
+
+
+.currencies {
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.currency {
+    display: flex;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.253);
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.curHead {
+    color: #75AF26;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.currency_name {
+    width: 20%;
+}
+
+.currency .buy {
+    width: 40%;
+    text-align: right;
+}
+
+.currency .sale {
+    width: 40%;
+    text-align: right;
+}
+
